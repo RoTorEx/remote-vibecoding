@@ -1,0 +1,6 @@
+/telegram-vibecoding/
+/vibecoding-core/
+/.env
+/.env.*
+!/.env.example
+.DS_Store
