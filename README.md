@@ -1,8 +1,9 @@
 # Remote Vibecoding
 
-One entrypoint for work across two independently versioned components:
+One entrypoint for work across three independently versioned components:
 
 - [Telegram Vibecoding](https://github.com/RoTorEx/telegram-vibecoding): Telegram interface, menus, formatting and media transport.
+- Web Vibecoding (private repository): iPhone-first web chats, media and agent overview inside the owner VPN.
 - [Vibecoding Core](https://github.com/RoTorEx/vibecoding-core): native host agents, state, speech recognition, API and operations.
 
 Start agent sessions in this directory and follow `AGENTS.md`. It routes a narrow
@@ -11,16 +12,17 @@ this project root are separate launch locations in the Telegram bot.
 
 ## Checkouts
 
-Clone this repository, then clone each component into its matching child folder:
+Clone this repository, then clone each component into its matching child folder (web access requires the private repository):
 
 ```sh
 git clone git@github.com:RoTorEx/remote-vibecoding.git
 cd remote-vibecoding
 git clone git@github.com:RoTorEx/telegram-vibecoding.git
 git clone git@github.com:RoTorEx/vibecoding-core.git
+git clone git@github.com:RoTorEx/web-vibecoding.git
 ```
 
-All three Git histories are independent. The children are ignored by the root;
+All four Git histories are independent. The children are ignored by the root;
 there are no submodules or pinned component revisions. Fetch/pull and commit in
 the selected repository. The root has no application version or release process;
 its agent router has a date/revision header. Each component owns its checks,
@@ -28,7 +30,9 @@ semantic versions and releases.
 
 ## Operation owners
 
-One Compose project runs two containers. Compose, shared Make targets and the
+One Compose project runs Core and Telegram in two containers. The independently
+installed web-vibecoding systemd service uses the existing Core Unix API; its
+release/deployment belongs to web-vibecoding/docs/operations.md. Compose, shared Make targets and the
 workspace manifest remain owned by Core and are linked here. `docs` and `TASK.md`
 also link to Core; read only what the task needs. Root `AGENTS.md`, `README.md`
 and `.gitignore` belong to this repository.
