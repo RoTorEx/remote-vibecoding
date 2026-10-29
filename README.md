@@ -2,13 +2,14 @@
 
 One entrypoint for work across three independently versioned components:
 
-- [Telegram Vibecoding](https://github.com/RoTorEx/telegram-vibecoding): Telegram interface, menus, formatting and media transport.
+- [Telegram Vibecoding](https://github.com/RoTorEx/telegram-vibecoding): notification-only Telegram companion with web-chat links and read-only activity statistics.
 - Web Vibecoding (private repository): iPhone-first web chats, media and agent overview inside the owner VPN.
 - [Vibecoding Core](https://github.com/RoTorEx/vibecoding-core): native host agents, state, speech recognition, API and operations.
 
 Start agent sessions in this directory and follow `AGENTS.md`. It routes a narrow
 task to its owner without loading the other component's implementation. Home and
-this project root are separate launch locations in the Telegram bot.
+this project root remain separate registered launch locations in the private web
+workspace. Telegram cannot start or control native agent sessions.
 
 ## Checkouts
 

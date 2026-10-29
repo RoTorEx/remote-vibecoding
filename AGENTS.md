@@ -1,5 +1,5 @@
 ---
-version: "2026-10-27.1"
+version: "2026-10-29.1"
 ---
 
 # Remote Vibecoding router
@@ -11,7 +11,7 @@ relevant sources. A narrow task does not require reading both implementations.
 | Task | Read next |
 | --- | --- |
 | Mobile web UI, browser uploads, web access or frontend deployment | `web-vibecoding/AGENTS.md` |
-| Telegram menus, formatting, media transport or UI state | `telegram-vibecoding/AGENTS.md` |
+| Telegram notifications, read-only statistics or web-chat links | `telegram-vibecoding/AGENTS.md` |
 | Native execution, sessions, queues, speech recognition, API, deployment or backups | `vibecoding-core/AGENTS.md` |
 | A change crossing the bot/Core boundary | Both component instructions and `vibecoding-core/docs/api.md` |
 | Workspace routing, repository layout or this entrypoint | This file and `README.md`; component rules only if their files change |
