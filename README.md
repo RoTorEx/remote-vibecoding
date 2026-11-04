@@ -42,3 +42,12 @@ Run common operations from this directory and component checks from their owner.
 For configuration, deployment and recovery use `vibecoding-core/docs/operations.md`.
 Keep `.env`, host credentials and runtime state outside Git. Personal agent
 defaults belong to the installed user configuration, not this public repository.
+
+## Installed host room
+
+Development checkouts keep their registered cwd paths. Production uses
+`/srv/remote-vibecoding/{runtime,config,data}` with core/notifier/web component
+directories. The installed remote-vibecoding operator and snapshot timer use
+`runtime/core/ops.py`; only source builds consult this developer workspace.
+Native Codex identities and user-wide credentials remain in their native home
+locations. Core owns the operational installation contract.
