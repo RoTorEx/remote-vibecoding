@@ -46,8 +46,12 @@ defaults belong to the installed user configuration, not this public repository.
 ## Installed host room
 
 Development checkouts keep their registered cwd paths. Production uses
-`/srv/remote-vibecoding/{runtime,config,data}` with core/notifier/web component
+`/srv/remote-vibecoding/{runtime,config,data,logs}` with core/notifier/web component
 directories. The installed remote-vibecoding operator and snapshot timer use
 `runtime/core/ops.py`; only source builds consult this developer workspace.
 Native Codex identities and user-wide credentials remain in their native home
 locations. Core owns the operational installation contract.
+
+Core, notifier and Web run in separate containers. The operator stays native;
+Web owns its independent image and Compose controls. See each component's
+operations documentation for mounts, first cutover and recovery.
