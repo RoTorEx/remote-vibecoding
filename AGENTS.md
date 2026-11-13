@@ -1,5 +1,5 @@
 ---
-version: "2026-11-13.1"
+version: "2026-11-13.2"
 ---
 
 # Remote Vibecoding router
@@ -11,7 +11,7 @@ relevant sources. A narrow task does not require reading both implementations.
 | Task | Read next |
 | --- | --- |
 | Mobile web UI, browser uploads, web access or frontend deployment | `web-vibecoding/AGENTS.md` |
-| Telegram notifications, read-only statistics or web-chat links | `../../home/personal-notifier/AGENTS.md` |
+| Personal notifications, including Vibecoding event delivery | `../../home/personal-notifier/AGENTS.md` |
 | Native execution, sessions, queues, speech recognition, API, deployment or backups | `vibecoding-core/AGENTS.md` |
 | A change crossing the bot/Core boundary | The independent Personal Notifier and Core instructions, plus `vibecoding-core/docs/api.md` |
 | Workspace routing, repository layout or this entrypoint | This file and `README.md`; component rules only if their files change |
@@ -21,7 +21,8 @@ editing. Keep product behavior and operating procedures with their existing
 component owner; do not copy their documentation into this entrypoint. Root
 startup must not bulk-load component docs, saved tasks or unrelated projects.
 
-This root and its three child directories are independent Git repositories. Run
+This root, its Core/Web child directories and the external Personal Notifier
+checkout are independent Git repositories. Run
 Git, checks and releases in the repository that owns each change. Refresh each
 selected existing checkout before work; preserve unrelated files and commits.
 The child repositories are ignored directories, not submodules or pinned copies.
