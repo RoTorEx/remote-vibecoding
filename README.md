@@ -2,7 +2,7 @@
 
 One entrypoint for work across three independently versioned components:
 
-- [Telegram Vibecoding](https://github.com/RoTorEx/telegram-vibecoding): notification-only Telegram companion with web-chat links and read-only activity statistics.
+- [Personal Notifier](https://github.com/RoTorEx/personal-notifier): independent outbound-only personal event feed; pulls Vibecoding and housing notifications without Telegram buttons or commands.
 - Web Vibecoding (private repository): iPhone-first web chats, media and agent overview inside the owner VPN.
 - [Vibecoding Core](https://github.com/RoTorEx/vibecoding-core): native host agents, state, speech recognition, API and operations.
 
@@ -18,7 +18,7 @@ Clone this repository, then clone each component into its matching child folder 
 ```sh
 git clone git@github.com:RoTorEx/remote-vibecoding.git
 cd remote-vibecoding
-git clone git@github.com:RoTorEx/telegram-vibecoding.git
+git clone git@github.com:RoTorEx/personal-notifier.git /path/to/personal/projects/home/personal-notifier
 git clone git@github.com:RoTorEx/vibecoding-core.git
 git clone git@github.com:RoTorEx/web-vibecoding.git
 ```
@@ -31,7 +31,7 @@ semantic versions and releases.
 
 ## Operation owners
 
-One Compose project runs Core and Telegram in two containers. The independently
+Core and Personal Notifier now have independent Compose projects. Personal Notifier owns its service in `/srv/personal-notifier`; Core does not start the retired shared bot. The independently
 installed web-vibecoding systemd service uses the existing Core Unix API; its
 release/deployment belongs to web-vibecoding/docs/operations.md. Compose, shared Make targets and the
 workspace manifest remain owned by Core and are linked here. `docs` and `TASK.md`
@@ -52,6 +52,6 @@ directories. The installed remote-vibecoding operator and snapshot timer use
 Native Codex identities and user-wide credentials remain in their native home
 locations. Core owns the operational installation contract.
 
-Core, notifier and Web run in separate containers. The operator stays native;
+Core, Personal Notifier and Web run in separate containers and independent application projects. The operator stays native;
 Web owns its independent image and Compose controls. See each component's
 operations documentation for mounts, first cutover and recovery.
