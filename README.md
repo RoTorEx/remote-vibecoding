@@ -2,7 +2,7 @@
 
 One entrypoint for work across three independently versioned components:
 
-- [Personal Notifier](https://github.com/RoTorEx/personal-notifier): independent outbound-only personal event feed; pulls Vibecoding and housing notifications without Telegram buttons or commands.
+- [Personal Notifier](https://github.com/RoTorEx/personal-notifier): independent outbound-only personal event feed for its current non-technical sources; it no longer collects or delivers Vibecoding outcomes.
 - Web Vibecoding (private repository): iPhone-first web chats, media and agent overview inside the owner VPN.
 - [Vibecoding Core](https://github.com/RoTorEx/vibecoding-core): native host agents, state, speech recognition, API and operations.
 
@@ -31,11 +31,13 @@ semantic versions and releases.
 
 ## Operation owners
 
-Core and Personal Notifier now have independent Compose projects. Personal Notifier owns its service in `/srv/personal-notifier`; Core does not start the retired shared bot. The independently
+Core and Personal Notifier have independent Compose projects. Personal Notifier owns its service in `/srv/personal-notifier`; Core does not start the retired shared bot. Node Tools collects Vibecoding technical outcomes through Core's read-only API, and Node Radar delivers them. The independently
 installed web-vibecoding systemd service uses the existing Core Unix API; its
 release/deployment belongs to web-vibecoding/docs/operations.md. Compose, shared Make targets and the
-workspace manifest remain owned by Core and are linked here. `docs` and `TASK.md`
-also link to Core; read only what the task needs. Root `AGENTS.md`, `README.md`
+workspace manifest remain owned by Core. The workspace Makefile includes the
+Core targets directly. Use [Core docs](vibecoding-core/docs/) and the
+[Core task queue](vibecoding-core/TASK.md). The Compose manifest, workspace
+manifest and environment example are under `vibecoding-core/deployment/workspace/`. Root `AGENTS.md`, `README.md`
 and `.gitignore` belong to this repository.
 
 Run common operations from this directory and component checks from their owner.
@@ -47,8 +49,8 @@ defaults belong to the installed user configuration, not this public repository.
 
 Development checkouts keep their registered cwd paths. Production uses
 `/srv/remote-vibecoding/{runtime,config,data,logs}` with core/notifier/web component
-directories. The installed remote-vibecoding operator and snapshot timer use
-`runtime/core/ops.py`; only source builds consult this developer workspace.
+directories. The installed remote-vibecoding operator uses `runtime/core/ops.py`;
+no snapshot timer is installed. Only source builds consult this developer workspace.
 Native Codex identities and user-wide credentials remain in their native home
 locations. Core owns the operational installation contract.
 

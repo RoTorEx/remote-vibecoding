@@ -1,1 +1,0 @@
-vibecoding-core/TASK.md

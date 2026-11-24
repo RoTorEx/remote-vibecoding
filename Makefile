@@ -1,1 +1,1 @@
-vibecoding-core/deployment/workspace/Makefile
+include vibecoding-core/deployment/workspace/Makefile
